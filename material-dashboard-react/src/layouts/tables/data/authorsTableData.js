@@ -81,11 +81,7 @@ export default function data() {
                 Edit
               </MDTypography>
             </Grid>
-            <Grid item>
-              <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-                Users
-              </MDTypography>
-            </Grid>
+            
             <Grid item>
               <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
                 Delete
@@ -110,11 +106,7 @@ export default function data() {
                 Edit
               </MDTypography>
             </Grid>
-            <Grid item>
-              <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-                Users
-              </MDTypography>
-            </Grid>
+            
             <Grid item>
               <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
                 Delete
@@ -139,11 +131,7 @@ export default function data() {
                 Edit
               </MDTypography>
             </Grid>
-            <Grid item>
-              <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-                Users
-              </MDTypography>
-            </Grid>
+            
             <Grid item>
               <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
                 Delete
@@ -168,11 +156,7 @@ export default function data() {
                 Edit
               </MDTypography>
             </Grid>
-            <Grid item>
-              <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-                Users
-              </MDTypography>
-            </Grid>
+            
             <Grid item>
               <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
                 Delete
@@ -197,11 +181,7 @@ export default function data() {
                 Edit
               </MDTypography>
             </Grid>
-            <Grid item>
-              <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-                Users
-              </MDTypography>
-            </Grid>
+            
             <Grid item>
               <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
                 Delete
@@ -226,11 +206,7 @@ export default function data() {
                 Edit
               </MDTypography>
             </Grid>
-            <Grid item>
-              <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-                Users
-              </MDTypography>
-            </Grid>
+            
             <Grid item>
               <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
                 Delete

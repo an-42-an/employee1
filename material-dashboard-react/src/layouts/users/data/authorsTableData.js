@@ -64,7 +64,7 @@ export default function data() {
   return {
     columns: [
       { Header: "id", accessor: "id", align: "left" },
-      { Header: "user", accessor: "admin_id", width: "45%", align: "left" },
+      { Header: "user", accessor: "user_id", width: "45%", align: "left" },
       { Header: "employee id", accessor: "company", align: "left" },
       { Header: "created at", accessor: "created_at", align: "left" },
       
@@ -74,7 +74,7 @@ export default function data() {
       {
         company: <Author image={LogoAsana} name="1" email="Asana" />,
         id: 1,
-        admin_id: <Author image={team2} name="John Michael" color="error" email="john@creative-tim.com" />,
+        user_id: <Author image={team2} name="John Michael" color="error" email="john@creative-tim.com" />,
         created_at: (
           <MDTypography component="a" variant="caption" color="text" fontWeight="medium">
             23/04/18
@@ -84,7 +84,7 @@ export default function data() {
       {
         company: <Author image={logoGithub} name="2" email="Github" />,
         id: 2,
-        admin_id: <Author image={team3} name="Alexa Liras" color="error" email="alexa@creative-tim.com" />,
+        user_id: <Author image={team3} name="Alexa Liras" color="error" email="alexa@creative-tim.com" />,
         created_at: (
           <MDTypography component="a" variant="caption" color="text" fontWeight="medium">
             11/01/19
@@ -94,7 +94,7 @@ export default function data() {
       {
         company: <Author image={logoAtlassian} name="3" email="Atlassian" />,
         id: 3,
-        admin_id: <Author image={team4} name="Laurent Perrier" color="error" email="laurent@creative-tim.com" />,
+        user_id: <Author image={team4} name="Laurent Perrier" color="error" email="laurent@creative-tim.com" />,
         created_at: (
           <MDTypography component="a" variant="caption" color="text" fontWeight="medium">
             19/09/17
@@ -104,7 +104,7 @@ export default function data() {
       {
         company: <Author image={logoSlack} name="4" email="Slack" />,
         id: 4,
-        admin_id: <Author image={team3} name="Michael Levi" color="error" email="michael@creative-tim.com" />,
+        user_id: <Author image={team3} name="Michael Levi" color="error" email="michael@creative-tim.com" />,
         created_at: (
           <MDTypography component="a" variant="caption" color="text" fontWeight="medium">
             24/12/08
@@ -114,7 +114,7 @@ export default function data() {
       {
         company: <Author image={logoSpotify} name="5" email="Spotify" />,
         id: 5,
-        admin_id: <Author image={team3} name="Richard Gran" color="error" email="richard@creative-tim.com" />,
+        user_id: <Author image={team3} name="Richard Gran" color="error" email="richard@creative-tim.com" />,
         created_at: (
           <MDTypography component="a" variant="caption" color="text" fontWeight="medium">
             04/10/21
@@ -124,7 +124,7 @@ export default function data() {
       {
         company: <Author image={logoInvesion} name="6" email="Invision" />,
         id: 6,
-        admin_id: <Author image={team4} name="Miriam Eric" color="error" email="miriam@creative-tim.com" />,
+        user_id: <Author image={team4} name="Miriam Eric" color="error" email="miriam@creative-tim.com" />,
         created_at: (
           <MDTypography component="a" variant="caption" color="text" fontWeight="medium">
             14/09/20
@@ -135,7 +135,7 @@ export default function data() {
       {
         company: <Author image={logoInvesion} name="7" email="Invision" />,
         id: 7,
-        admin_id: <Author image={team4} name="Doe Eric" email="doe@creative-tim.com" />,
+        user_id: <Author image={team4} name="Doe Eric" email="doe@creative-tim.com" />,
         created_at: (
           <MDTypography component="a" variant="caption" color="text" fontWeight="medium">
             14/09/21
