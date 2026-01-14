@@ -18,17 +18,17 @@ import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 
 // Dashboard components
-import SAUsers from "layouts/users/SAUsers.js";
+import DefaultDirectReports from "layouts/directreports/DefaultDirectReports.js";
 
-function Users() {
+function DirectReports() {
   //const { sales, tasks } = reportsLineChartData;
   const {user} = useContext(AuthContext);
   const role=user.role;
   return (
        <> 
-       {(role=='sa')?<SAUsers/>:<></>} 
+       {(true)?<DefaultDirectReports/>:<></>} 
        </>
   );
 }
 
-export default Users;
+export default DirectReports;

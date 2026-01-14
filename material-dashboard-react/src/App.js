@@ -47,6 +47,12 @@ import createCache from "@emotion/cache";
 // Material Dashboard 2 React routes
 //import routes from "routes";
 import saRoutes from "routes/saRoutes";
+import caRoutes from "routes/caRoutes";
+import hrHeadRoutes from "routes/hrHeadRoutes";
+import cxoRoutes from "routes/cxoRoutes";
+import finRoutes from "routes/finRoutes";
+import regroutes from "routes/regRoutes";
+import temproutes from "routes/tempRoutes";
 
 // Material Dashboard 2 React contexts
 import { useMaterialUIController, setMiniSidenav, setOpenConfigurator } from "context";
@@ -115,6 +121,14 @@ export default function App() {
 
   const roleRoutesMap = {
     sa: saRoutes,
+    ca: caRoutes,
+    hrh: hrHeadRoutes,
+    cxo: cxoRoutes,
+    hr: cxoRoutes,
+    dept: cxoRoutes,
+    fin: finRoutes,
+    reg: regroutes,
+    temp: temproutes,
   };
 
   const activeRoutes = roleRoutesMap[role] || [];
@@ -131,30 +145,30 @@ export default function App() {
       return null;
     });
 
-  // const configsButton = (
-  //   <MDBox
-  //     display="flex"
-  //     justifyContent="center"
-  //     alignItems="center"
-  //     width="3.25rem"
-  //     height="3.25rem"
-  //     bgColor="white"
-  //     shadow="sm"
-  //     borderRadius="50%"
-  //     position="fixed"
-  //     right="2rem"
-  //     bottom="2rem"
-  //     zIndex={99}
-  //     color="dark"
-  //     sx={{ cursor: "pointer" }}
-  //     onClick={handleConfiguratorOpen}
-  //   >
-  //     <Icon fontSize="small" color="inherit">
-  //       settings
-  //     </Icon>
-  //   </MDBox>
-  // );
-  const configsButton =(<></>);
+  const configsButton = (
+    <MDBox
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      width="3.25rem"
+      height="3.25rem"
+      bgColor="white"
+      shadow="sm"
+      borderRadius="50%"
+      position="fixed"
+      right="2rem"
+      bottom="2rem"
+      zIndex={99}
+      color="dark"
+      sx={{ cursor: "pointer" }}
+      onClick={handleConfiguratorOpen}
+    >
+      <Icon fontSize="small" color="inherit">
+        settings
+      </Icon>
+    </MDBox>
+  );
+  // const configsButton =(<></>);
   
   return direction === "rtl" ? (
     <CacheProvider value={rtlCache}>

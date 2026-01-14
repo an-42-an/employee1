@@ -19,6 +19,12 @@ import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 
 // Dashboard components
 import SADashboard from "layouts/dashboard/SADashboard.js";
+import CADashboard from "layouts/dashboard/CADashboard.js";
+import HRHDashboard from "layouts/dashboard/HRHDashboard.js";
+import CXODashboard from "layouts/dashboard/CXODashboard.js";
+import FINDashboard from "./FINDashboard";
+import REGDashboard from "./REGDashboard";
+import TEMPDashboard from "./TEMPDashboard";
 
 function Dashboard() {
   //const { sales, tasks } = reportsLineChartData;
@@ -27,7 +33,10 @@ function Dashboard() {
   return (
     <DashboardLayout>
       {/* <DashboardNavbar /> */}
-        {(role=='sa')?<SADashboard/>:<></>}
+        {(role=='sa')?<SADashboard/>:(role=='ca')?<CADashboard/> :
+        (role=='hrh')?<HRHDashboard/>:(role=='cxo'||role=='hr'||role=='dept')?<CXODashboard/>:
+        (role=='fin')?<FINDashboard/>:(role=='reg')?<REGDashboard/>:
+        (role=='temp')?<TEMPDashboard/>:<></>}
     </DashboardLayout>
   );
 }

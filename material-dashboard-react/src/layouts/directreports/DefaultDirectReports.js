@@ -1,0 +1,273 @@
+/**
+=========================================================
+* Material Dashboard 2 React - v2.2.0
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/material-dashboard-react
+* Copyright 2023 Creative Tim (https://www.creative-tim.com)
+
+Coded by www.creative-tim.com
+
+ =========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+*/
+
+// @mui material components
+import Grid from "@mui/material/Grid";
+import Card from "@mui/material/Card";
+
+// Material Dashboard 2 React components
+import MDBox from "components/MDBox";
+import MDTypography from "components/MDTypography";
+import MDInput from "components/MDInput";
+import MDBadge from "components/MDBadge";
+// Material Dashboard 2 React example components
+import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
+import DashboardNavbar from "examples/Navbars/DashboardNavbar";
+import Footer from "examples/Footer";
+import DataTable from "examples/Tables/DataTable";
+import AddIcon from "@mui/icons-material/Add";
+import {
+  IconButton,
+  Popover,
+  TextField,
+  Box,
+  Button,
+} from "@mui/material";
+// Data
+import authorsTableData from "layouts/directreports/data/authorsTableData";
+import { useState } from "react";
+import { blue } from "@mui/material/colors";
+
+function DefaultDirectReports() {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [leaveAnchor, setLeaveAnchor] = useState(null);
+  const openLeave = (e) => setLeaveAnchor(e.currentTarget);
+  const closeLeave = () => setLeaveAnchor(null);
+  //const [addEl, setAddEl] = useState(null);
+  const [search, setSearch] = useState("");
+  const [searchBy, setSearchBy] = useState("company.name");
+  const onSuperiorClick = (id) => {
+    setSearch(String(id));
+    setSearchBy("id");
+  };
+  const onView = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const { columns, rows } = authorsTableData({ onSuperiorClick, onView, openLeave });
+  const getText = (el, key) => el?.props?.[key]?.toLowerCase?.() || "";
+  const filteredRows = rows.filter((r) => {
+    const q = search.toLowerCase();
+    switch (searchBy) {
+      case "id":
+        return String(r.emp_id).includes(q);
+
+      case "user.name":
+        return getText(r.user, "name").includes(q);
+
+      case "user.email":
+        return getText(r.user, "email").includes(q);
+
+      default:
+        return true;
+    }
+  });
+
+  return (
+    <DashboardLayout>
+      <DashboardNavbar />
+      <MDBox pt={6} pb={3}>
+        <Grid container spacing={6}>
+          <Grid item xs={12}>
+            <Card>
+              <MDBox
+                mx={2}
+                mt={-3}
+                py={3}
+                px={2}
+                variant="gradient"
+                bgColor="info"
+                borderRadius="lg"
+                coloredShadow="info"
+              >
+                <Grid container spacing={4}>
+                  <Grid item>
+                    <MDTypography variant="h6" color="white">
+                      Direct Reports
+                    </MDTypography>
+                  </Grid>
+                  {/* <Grid item>
+                      <AddIcon onClick={(e) => setAddEl(e.currentTarget)} color="white"/>
+                  </Grid> */}
+                  <Grid item>
+                    <TextField
+                      label="Search Employee"
+                      size="small"
+                      fullWidth
+                      value={search}
+                      onChange={(e) => setSearch(e.target.value)}
+                      sx={{ mb: 1,
+                          "& .MuiInputBase-input": { color: "#fff" },
+                          "& .MuiInputLabel-root": { color: "#fff" },
+                          "& .MuiInputLabel-root.Mui-focused": { color: "#fff" },
+
+                          "& .MuiOutlinedInput-notchedOutline": {
+                            borderColor: "#fff",
+                          },
+                          "&:hover .MuiOutlinedInput-notchedOutline": {
+                            borderColor: "#fff",
+                          },
+                          "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                            borderColor: "#fff",
+                          },
+                        }}
+                    />
+                    
+                  </Grid>
+                  <Grid item>
+                    <MDInput
+                      select
+                      size="small"
+                      value={searchBy}
+                      onChange={(e) => setSearchBy(e.target.value)}
+                      SelectProps={{ native: true }}
+                      sx={{
+                        "& select": {
+                          color: "#fff", // selected value
+                        },
+                        "& option": {
+                          color: "#000", // dropdown options
+                          backgroundColor: "#fff",
+                        },
+                        "& .MuiSvgIcon-root": {
+                          color: "#fff", // dropdown arrow
+                        },
+                        "& .MuiOutlinedInput-notchedOutline": {
+                            borderColor: "#fff",
+                          },
+                          "&:hover .MuiOutlinedInput-notchedOutline": {
+                            borderColor: "#fff",
+                          },
+                          "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                            borderColor: "#fff",
+                          },
+                      }}
+
+                    >
+                      <option value="id">Employee ID</option>
+                      <option value="user.name">Name</option>
+                      <option value="user.email">Email</option>
+                    </MDInput>
+                  </Grid>
+                </Grid>
+              </MDBox>
+              <Popover
+                open={Boolean(anchorEl)}
+                anchorReference="anchorPosition"
+                anchorPosition={{
+                  top: window.innerHeight / 2,
+                  left: window.innerWidth / 2,
+                }}
+                PaperProps={{
+                  sx: ({ palette }) => ({
+                    backgroundColor:
+                      palette.mode === "dark"
+                        ? palette.background.card
+                        : palette.white.main,
+                  }),
+                }}
+                onClose={() => setAnchorEl(null)}
+              >
+                <Box p={2} display="grid" gridTemplateColumns="auto 1fr" rowGap={0.75} columnGap={2}>
+                  <MDTypography variant="caption" color="text.secondary">
+                    Base Salary
+                  </MDTypography>
+                  <MDTypography variant="caption" color="text.secondary">
+                    <strong>₹80,000</strong>
+                  </MDTypography>
+
+                  <MDTypography variant="caption" color="text.secondary">
+                    Leave / Month
+                  </MDTypography>
+                  <MDTypography variant="caption" color="text.secondary">
+                    <strong>2</strong>
+                  </MDTypography>
+
+                  <MDTypography variant="caption" color="text.secondary">
+                    Status
+                  </MDTypography>
+                  <MDTypography variant="caption">
+                    <strong style={{ color: "#4caf50" }}>Active</strong>
+                  </MDTypography>
+
+                  <MDTypography variant="caption" color="text.secondary">
+                    Created
+                  </MDTypography>
+                  <MDTypography variant="caption" color="text.secondary">
+                    <strong>2020/09/09</strong>
+                  </MDTypography>
+                </Box>
+              </Popover>
+              <Popover
+                open={Boolean(leaveAnchor)}
+                anchorEl={leaveAnchor}
+                onClose={closeLeave}
+                anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+                PaperProps={{
+                  sx: ({ palette }) => ({
+                    backgroundColor:
+                      palette.mode === "dark"
+                        ? palette.background.card
+                        : palette.white.main,
+                  }),
+                }}
+              >
+                <MDBox p={2} minWidth={220}>
+                  <MDTypography variant="caption" color="text.secondary">
+                    Leave Duration
+                  </MDTypography>
+                  <br></br>
+                  <MDTypography variant="caption" fontWeight="medium">
+                    12 Sep 2026 - 15 Sep 2026
+                  </MDTypography>
+
+                  <MDBox mt={1.5} display="flex" gap={1}>
+                    <MDBadge
+                      variant="gradient"
+                      color="success"
+                      size="sm"
+                      badgeContent="Approve"
+                      sx={{ cursor: "pointer" }}
+                    />
+
+                    <MDBadge
+                      variant="gradient"
+                      color="error"
+                      size="sm"
+                      badgeContent="Reject"
+                      sx={{ cursor: "pointer" }}
+                    />
+                  </MDBox>
+                </MDBox>
+              </Popover>
+              
+              <MDBox pt={3}>
+                <DataTable
+                  table={{ columns, rows:filteredRows }}
+                  isSorted={false}
+                  entriesPerPage={false}
+                  showTotalEntries={false}
+                  noEndBorder
+                />
+              </MDBox>
+            </Card>
+          </Grid>
+        </Grid>
+      </MDBox>
+    </DashboardLayout>
+  );
+}
+
+export default DefaultDirectReports;

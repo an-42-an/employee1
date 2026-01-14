@@ -17,18 +17,16 @@ import { AuthContext } from "context";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 
-// Dashboard components
-import SAUsers from "layouts/users/SAUsers.js";
+import HRHPayments from "./HRHPayments";
 
-function Users() {
+function Payments() {
   //const { sales, tasks } = reportsLineChartData;
   const {user} = useContext(AuthContext);
   const role=user.role;
   return (
-       <> 
-       {(role=='sa')?<SAUsers/>:<></>} 
-       </>
+    <>
+        {(role=='hrh'||role=='fin')?<HRHPayments/>:<></>}</>
   );
 }
 
-export default Users;
+export default Payments;

@@ -18,17 +18,17 @@ import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 
 // Dashboard components
-import SAUsers from "layouts/users/SAUsers.js";
+//import SADashboard from "layouts/dashboard/SADashboard.js";
+import CAPayments from "layouts/payments/CAPayments.js";
 
-function Users() {
+function HRHPayments() {
   //const { sales, tasks } = reportsLineChartData;
   const {user} = useContext(AuthContext);
   const role=user.role;
   return (
-       <> 
-       {(role=='sa')?<SAUsers/>:<></>} 
-       </>
+    <>
+        {(role=='ca'||role=='cxo'||role=='hr'||role=='dept')?<CAPayments/> :<></>}</>
   );
 }
 
-export default Users;
+export default HRHPayments;

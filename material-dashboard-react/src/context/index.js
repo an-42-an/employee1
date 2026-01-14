@@ -141,7 +141,7 @@ export const AuthContext = createContext(null);
 export function AuthProvider({ children }) {
   const [user, setUser] = useState({
     id: 1,
-    role: "sa",
+    role: "temp",
     companyId: 10,
   });
   return (
