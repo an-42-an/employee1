@@ -171,21 +171,43 @@ function CAEmployees() {
                   left: window.innerWidth / 2,
                 }}
                 PaperProps={{
-                  sx: {
-                    bgcolor: "background.paper",
-                    color: "text.primary",
-                  },
+                  sx: ({ palette }) => ({
+                    backgroundColor:
+                      palette.mode === "dark"
+                        ? palette.background.card
+                        : palette.white.main,
+                  }),
                 }}
                 onClose={() => setAnchorEl(null)}
               >
-                <Box p={2}>
-                  <MDTypography variant="caption">Base Salary: ₹80,000</MDTypography>
-                  <br/>
-                  <MDTypography variant="caption">Leave / Month: 2</MDTypography>
-                  <br/>
-                  <MDTypography variant="caption">Status: Active</MDTypography>
-                  <br/>
-                  <MDTypography variant="caption">Created at: 2020/09/09</MDTypography>
+                <Box p={2} display="grid" gridTemplateColumns="auto 1fr" rowGap={0.75} columnGap={2}>
+                  <MDTypography variant="caption" color="text.secondary">
+                    Base Salary
+                  </MDTypography>
+                  <MDTypography variant="caption" color="text.secondary">
+                    <strong>₹80,000</strong>
+                  </MDTypography>
+
+                  <MDTypography variant="caption" color="text.secondary">
+                    Leave / Month
+                  </MDTypography>
+                  <MDTypography variant="caption" color="text.secondary">
+                    <strong>2</strong>
+                  </MDTypography>
+
+                  <MDTypography variant="caption" color="text.secondary">
+                    Status
+                  </MDTypography>
+                  <MDTypography variant="caption">
+                    <strong style={{ color: "#4caf50" }}>Active</strong>
+                  </MDTypography>
+
+                  <MDTypography variant="caption" color="text.secondary">
+                    Created
+                  </MDTypography>
+                  <MDTypography variant="caption" color="text.secondary">
+                    <strong>2020/09/09</strong>
+                  </MDTypography>
                 </Box>
               </Popover>
               <Popover

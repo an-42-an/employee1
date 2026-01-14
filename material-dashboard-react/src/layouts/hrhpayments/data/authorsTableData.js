@@ -126,7 +126,7 @@ export default function data() {
           </MDTypography>
         ),
         action: (
-        (role=='hr')?<>
+        (role=='hrh')?<>
         <Grid container spacing={1}>
           <Grid item>
             <Approval value="approve" />
