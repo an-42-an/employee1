@@ -75,7 +75,7 @@ function TEMPDashboard() {
                 color="success"
                 icon="store"
                 title="Contract End"
-                count="05/05/2025"
+                count="05/10/2025"
                 // percentage={{
                 //   color: "success",
                 //   amount: "+3%",
